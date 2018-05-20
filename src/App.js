@@ -44,9 +44,14 @@ class App extends Component {
   }
 
   updateSpeed(e) {
+    clearInterval(this.state.timer);
+    let timer = this.state.timer;
+    timer = setInterval(this.incrementCounter, e.target.value);
     this.setState({
+      timer,
       speed: e.target.value
     });
+
   }
 
   render() {
